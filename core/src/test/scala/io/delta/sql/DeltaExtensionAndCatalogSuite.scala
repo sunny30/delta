@@ -78,6 +78,7 @@ class DeltaExtensionAndCatalogSuite extends SparkFunSuite {
         classOf[org.apache.spark.sql.delta.catalog.DeltaCatalog].getName
     ) { spark =>
       val v2Catalog = spark.sessionState.analyzer.catalogManager.catalog("spark_catalog")
+      spark.sql("create table t1(s1 int) using delta")
       assert(v2Catalog.isInstanceOf[org.apache.spark.sql.delta.catalog.DeltaCatalog])
     }
   }

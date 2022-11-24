@@ -16,6 +16,9 @@
 
 package org.apache.spark.sql.delta
 
+import org.apache.spark.sql.catalyst.analysis.{LocalTempView, ViewType}
+import org.apache.spark.sql.catalyst.trees.TreeNodeTag
+
 import scala.collection.JavaConverters._
 
 // scalastyle:off import.ordering.noEmptyLine
@@ -70,6 +73,12 @@ class DeltaAnalysis(session: SparkSession)
       } else {
         a
       }
+
+//    case x: LeafNode ⇒ {
+//      if(x.isInstanceOf[LocalTempView.type ])
+//        x.setTagValue(TreeNodeTag[String]("temp_view"),"xx")
+//      x
+//    }
 
 
     // INSERT OVERWRITE by ordinal

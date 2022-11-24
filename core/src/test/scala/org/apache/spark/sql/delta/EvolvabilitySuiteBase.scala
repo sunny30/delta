@@ -259,14 +259,16 @@ object EvolvabilitySuiteBase {
 
   def main(args: Array[String]): Unit = {
     val spark = SparkSession.builder().master("local[2]").getOrCreate()
-    val path = new File(args(0))
+    val path1 = "/tmp/p4"
+    val path = new File(path1)
     if (path.exists()) {
       // Don't delete automatically in case the user types a wrong path.
       // scalastyle:off throwerror
       throw new AssertionError(s"${path.getCanonicalPath} exists. Please delete it and retry.")
       // scalastyle:on throwerror
     }
-    args(1) match {
+    val p = "generateData"
+    p match {
       case "generateData" =>
         generateData(spark, path.toString)
         validateData(spark, path.toString)

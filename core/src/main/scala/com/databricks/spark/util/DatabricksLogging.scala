@@ -69,7 +69,7 @@ trait DatabricksLogging {
       opTarget: String = null,
       extraTags: Map[TagDefinition, String],
       isSynchronous: Boolean = true,
-      alwaysRecordStats: Boolean = false,
+      alwaysRecordStats: Boolean = true,
       allowAuthTags: Boolean = false,
       killJvmIfStuck: Boolean = false,
       outputMetric: MetricDefinition = null,
